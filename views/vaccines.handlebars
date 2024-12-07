@@ -1,0 +1,60 @@
+<select class="dropdown-wrapper">
+    <option selected>All</option>
+    <option>Dogs</option>
+    <option>Cats</option>
+</select>
+<button id="add-btn" class="add-btn">Add</button>
+<table id="vaccines-table">
+    <tr class="table-header">
+        <th>Vaccine</th>
+        <th>Species</th>
+        <th>Doses Available</th>
+    </tr>
+    {{#each vaccineData}}
+        {{> vaccineTableRow}}
+    {{/each}}
+</table>
+
+<div id="info-modal" class="hidden modal-skeleton">
+    <div class="modal-contents">
+        <div class="modal-body">
+            <div id="vaccine-info">
+                <p class="label name">Name</p>
+                    <p class="data name"></p>
+                <p class="label species">Species</p>
+                    <p class="data species"></p>
+                <label for="update-doses">Doses</label>
+                    <input type="number" id="update-doses" name="update-doses" autocomplete="off">
+            </div>
+        </div>
+        <div class="modal-btn-wrapper">
+            <button id="update-btn" class="modal-btn">Update</button>
+            <button id="delete-btn" class="modal-btn">Delete</button>
+            <button class="close-modal-btn modal-btn">Close</button>                    
+        </div>
+    </div>
+</div>
+
+
+<div id="add-vaccine-modal" class="hidden modal-skeleton">
+    <div class="modal-contents">
+        <div class="modal-body">
+            <div id="vaccine-input">
+                <label for="name">Name</label>
+                    <input type="text" id="name" name="name" autocomplete="off">
+                <p class="label species">Species</p>
+                    <select id="species-dropdown" class="dropdown-wrapper">
+                        <option selected>Canine</option>
+                        <option>Feline</option>
+                        <option>Dual</option>
+                    </select>
+                <label for="doses">Doses</label>
+                    <input type="number" id="doses" name="doses" autocomplete="off">
+            </div>
+        </div>
+        <div class="modal-btn-wrapper">
+            <button id="confirm-btn" class="modal-btn">Confirm</button>
+            <button class="close-modal-btn modal-btn">Close</button>                    
+        </div>
+    </div>
+</div>

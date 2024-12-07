@@ -1,0 +1,87 @@
+<select class="dropdown-wrapper">
+    <option selected>All</option>
+    <option>Fosters</option>
+    <option>Adoptions</option>
+</select>
+<button id="add-btn" class="add-btn">Add</button>
+<table id="fosters-and-adoptions-table">
+    <tr class="table-header">
+        <th>Animal</th>
+        <th>Patron</th>
+        <th>Fostered/Adopted</th>
+        <th>Date</th>
+    </tr>
+    {{#each faaData}}
+        {{> fosters_and_adoptionsTableRow}}
+    {{/each}}
+</table>
+
+<div id="info-modal" class="hidden modal-skeleton">
+    <div class="modal-contents">
+        <div class="modal-body">
+            <div id="fosters-adoptions-info">
+                <p class="label id">Animal ID</p>
+                    <p class="data id"></p>
+                <p class="label name">Animal Name</p>
+                    <p class="data name"></p>
+                <p class="label patronID">Patron ID</p>
+                    <p class="data patronID"></p>
+                <p class="label patronName">Patron Name</p>
+                    <p class="data patronName"></p>
+                <p class="label foster-adopt-status">Fostering/Adopted</p>
+                    <select id="foster-adopt-dropdown" class="data dropdown-wrapper">
+                        <option selected>Fostering</option>
+                        <option>Adopted</option>
+                    </select>
+                <p class="label date">Date</p>
+                    <p class="data date"></p>
+            </div>
+            <div class="animal-img-wrapper">
+                <img class="animal-modal-img" src="https://images.unsplash.com/photo-1592424701959-07bd1a04dc47?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1332&q=80" alt="Animal Photo.">
+            </div>
+        </div>
+        <div class="modal-btn-wrapper">
+            <button id="update-btn" class="modal-btn">Update</button>
+            <button id="delete-btn" class="modal-btn">Delete</button>
+            <button class="close-modal-btn modal-btn">Close</button>                    
+        </div>
+    </div>
+</div>
+
+
+<div id="add-foster-adoption-modal" class="hidden modal-skeleton">
+    <div class="modal-contents">
+        <div class="modal-body">
+            <div id="foster-adoption-input">
+                <p class="label animalID">Animal ID</p>
+                    <p class="data animalID"></p>
+                <p class="label name">Animal Name</p>
+                    <select id="animal-dropdown" class="dropdown-wrapper">
+                        {{#each animals}}
+                            <option value="{{this.animalID}}">{{this.animalName}}</option>
+                        {{/each}}
+                    </select>
+                <p class="label patronID">Patron ID</p>
+                    <p class="data patronID">0</p>
+                <p class="label patron">Patron</p>
+                    <select id="patron-dropdown" class="dropdown-wrapper">
+                        {{#each patrons}}
+                            <option value="{{this.patronID}}">{{this.firstName}} {{this.lastName}}</option>
+                        {{/each}}
+                    </select>
+                <p class="label foster-adopt-status">Fostering/Adopting</p>
+                    <select id="add-fosterAdopt-dropdown" class="dropdown-wrapper">
+                        <option selected>Fostering</option>
+                        <option>Adopting</option>
+                    </select>
+            </div>
+            <div class="animal-img-wrapper">
+                <img class="animal-modal-img" src="https://images.unsplash.com/photo-1592424701959-07bd1a04dc47?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1332&q=80" alt="Animal Photo.">
+            </div>
+        </div>
+        <div class="modal-btn-wrapper">
+            <button id="confirm-btn" class="modal-btn">Confirm</button>
+            <button class="close-modal-btn modal-btn">Close</button>                    
+        </div>
+    </div>
+</div>

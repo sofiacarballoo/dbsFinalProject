@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>GSU Shelter Database</title>
+        <link rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&amp;_cacheOverride=1689266748089" rel="stylesheet">
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.runtime.js" integrity="sha512-0bRnmqp8jww8h5q9khSJSMF7kUFVuzAiVpbwCr1+kot0yAwtVukdBQGznIvytgpFzy6wEgFbjbNSO2xcSBHTWA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chartjs-chart-boxplot@3.2.0"></script>
+
+
+        <script src="/index.js" defer></script>
+        {{#if anotherJS}}
+            <script src = {{jsFile}} defer></script>
+            <script src = {{tableJsFile}} defer></script>
+        {{/if}}
+    </head>
+
+    <body>
+        <nav id="navbar">
+            <div id="logo-wrapper">
+                <button id="logo-btn">
+                    <img id="logo" src="./imgs/shelter-logo.png" alt="animal shelter logo" />
+                </button>
+                <p id="site-name">GSU Shelter Database</p>
+            </div>
+            <div id="nav-links">
+                    <button id="animals-nav-btn">Animals</button>
+                    <button id="prescriptions-nav-btn">Prescriptions</button>
+                    <button id="vaccines-nav-btn">Vaccines</button>
+                    <button id="vaccines_administered-nav-btn">Vaccines Administered</button>
+                    <button id="patrons-nav-btn">Patrons</button>
+                    <button id="fosters_and_adoptions-nav-btn">Fosters and Adoptions</button>
+                    
+            </div>
+        </nav>
+
+        <div id="page-content">
+            {{{body}}}
+
+            <div id="modal-backdrop" class="hidden"></div>
+
+            <div id="delete-modal-backdrop" class="hidden"></div>
+
+            <div id="delete-modal" class="hidden">
+                <p>Deleting cannot be undone. Delete anyway?</p>
+                <div class="modal-btn-wrapper">
+                    <button id="confirm-delete" class="modal-btn">Yes</button>
+                    <button id="cancel-delete" class="modal-btn">No</button>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

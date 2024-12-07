@@ -1,0 +1,73 @@
+<div id="index-page-content-wrapper">
+    <h1>Welcome to the GSU Shelter Database!</h1>
+    <p class="no-border">Click on one of the page links in the sidebar to view various shelter data.</p>
+
+    <!-- Top Animals Section -->
+    <div id="top-animals-wrapper">
+        <h2>Top 5 Animals for Adoption</h2>
+        <div class="top-animals-grid">
+            <!-- Dynamically populated by JavaScript -->
+        </div>
+    </div>
+
+    <!-- Shelter Data Visualizations -->
+    <h2>Shelter Data Visualizations</h2>
+        <div class="charts-wrapper">
+            <div class="chart-container">
+                <h3>Adoptions by Month</h3>
+                <canvas id="adoptionsByMonthChart" width="400" height="400"></canvas>
+            </div>
+            <div class="chart-container">
+                <h3>Dog Age Distribution</h3>
+            <canvas id="ageDistributionChart" width="400" height="400"></canvas>
+        </div>
+        <div class="chart-container">
+            <h3>Top Patrons by Foster Count</h3>
+            <canvas id="topPatronsChart" width="400" height="400"></canvas>
+        </div>
+        <!-- Existing chart placeholders -->
+        <div class="chart-container">
+            <h3>Dogs vs Cats Available for Adoption</h3>
+            <canvas id="availableChart" width="400" height="400"></canvas>
+        </div>
+        <div class="chart-container">
+            <h3>Dogs vs Cats Adopted</h3>
+            <canvas id="adoptedChart" width="400" height="400"></canvas>
+        </div>
+        <div class="chart-container">
+            <h3>Rabies Vaccination Status</h3>
+            <canvas id="rabiesChart" width="400" height="400"></canvas>
+        </div>
+        <div class="chart-container">
+            <h3>Vaccines Administered</h3>
+            <canvas id="vaccineChart" width="400" height="400"></canvas>
+        </div>
+
+        <!-- New chart placeholders -->
+    <div class="chart-container">
+        <h3>Gender and Species Distribution</h3>
+        <canvas id="genderSpeciesChart" width="400" height="400"></canvas>
+    </div>
+    <div class="chart-container">
+        <h3>Top Animal Age Groups by Prescriptions</h3>
+        <canvas id="topAnimalAgeGroupsChart" width="400" height="400"></canvas>
+    </div>
+    </div>
+</div>
+
+<script src="/charts.js"></script>
+<script>
+    // Fetch top animals from the server
+    fetch('/api/top-animals')
+        .then(response => response.json())
+        .then(data => {
+            const grid = document.querySelector('.top-animals-grid');
+            grid.innerHTML = data.map(animal => `
+                <div class="animal-card">
+                    <img src="${animal.pictureURL}" alt="${animal.animalName}" />
+                    <p>${animal.animalName}</p>
+                </div>
+            `).join('');
+        })
+        .catch(error => console.error('Error fetching top animals:', error));
+</script>

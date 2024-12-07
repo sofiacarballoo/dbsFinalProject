@@ -1,0 +1,108 @@
+<select id="animal-dropdown" class="dropdown-wrapper">
+    <option selected>All</option>
+    <option>Ready to adopt</option>
+    <option>Adopted</option>
+    <option>Fostered</option>
+</select>
+<button id="add-animal-btn" class="add-btn">Add</button>
+<table id="animal-table">
+    <tr class="table-header">
+        <th>Animal ID</th>
+        <th>Species</th>
+        <th>Breed</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Gender</th>
+        <th>Score</th>
+        <th class="hidden">Picture</th>
+    </tr>
+
+{{#each animalData}}
+    {{> animalTableRow}}
+{{/each}}
+
+</table>
+
+<div id="info-modal" class="hidden modal-skeleton">
+    <div class="modal-contents">
+        <div class="modal-body">
+            <div id="animal-info">
+                <p class="label id">Animal ID</p>
+                    <p class="data id"></p>
+                <p class="label name">Name</p>
+                    <p class="data name"></p>
+                <p class="label species">Species</p>
+                    <p class="data species"></p>
+                <p class="label breed">Breed</p>
+                    <p class="data breed"></p>
+                <p class="label age">Age</p>
+                    <p class="data age"></p>
+                <p class="label gender">Gender</p>
+                    <p class="data gender"></p>
+            </div>
+
+            <div class="animal-img-adoption-wrapper">
+
+                <div id="animal-img" class="animal-img-wrapper">
+                    <img class="animal-modal-img" src="" alt="Animal Photo.">
+                </div>
+                
+                <p class="label adoptable">Adoptable</p>
+                    <select id="adoptable-dropdown" class="data adoptable dropdown-wrapper">
+                        <option selected>Yes</option>
+                        <option>No</option>
+                    </select>
+                <label for="restrictions">Restrictions</label>
+                    <input class="data restrictions" type="text" id="restrictions" name="restrictions" autocomplete="off">
+            </div>
+
+        </div>
+        <div class="modal-btn-wrapper">
+            <button id="update-animal-btn" class="modal-btn">Update</button>
+            <button id="delete-animal-btn" class="modal-btn delete">Delete</button>
+            <button class="close-modal-btn modal-btn">Close</button>                    
+        </div>
+    </div>
+</div>
+
+<div id="add-animal-modal" class="hidden modal-skeleton">
+    <div class="modal-contents">
+        <div class="modal-body">
+            <div id="animal-input">
+                <label for="name">Name</label>
+                    <input type="text" id="name" name="name" autocomplete="off">
+                <label>Species</label>
+                    <select id="species-dropdown" class="dropdown-wrapper">
+                        <option selectd>Canine</option>
+                        <option>Feline</option>
+                    </select>
+                <label for="breed">Breed</label>
+                    <input type="text" id="breed" name="breed" autocomplete="off">
+                <label for="age">Age</label>
+                    <input type="text" id="age" name="age" autocomplete="off">
+                <label>Gender</label>
+                    <select id="gender-dropdown" class="dropdown-wrapper">
+                        <option selected>F</option>
+                        <option>M</option>
+                    </select>
+                <label for="picURL">Picture URL</label>
+                    <input type="text" id="picURL" name="picURL" autocomplete="off">
+            </div>
+            <div class="animal-img-adoption-wrapper">
+                <div id="add-animal-img" class="animal-img-wrapper">
+                </div>
+                <label>Adoptable</label>
+                    <select id="i-adoptable-dropdown" class="dropdown-wrapper">
+                        <option selectd>No</option>
+                        <option>Yes</option>
+                    </select>
+                <label for="i-restrictions">Restrictions</label>
+                    <input type="text" id="i-restrictions" name="restrictions" autocomplete="off">
+            </div>
+        </div>
+        <div class="modal-btn-wrapper">
+            <button id="confirm-animal-btn" class="modal-btn">Confirm</button>
+            <button class="close-modal-btn modal-btn">Close</button>                    
+        </div>
+    </div>
+</div>

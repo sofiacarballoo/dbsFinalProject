@@ -1,0 +1,72 @@
+<select class="dropdown-wrapper">
+    <option selected>All</option>
+    <option>Dogs</option>
+    <option>Cats</option>
+</select>
+<button id="add-btn" class="add-btn">Add</button>
+<table id="prescription-table">
+    <tr class="table-header">
+        <th>Animal ID</th>
+        <th>Animal Name</th>
+        <th>Prescription</th>
+        <th>Frequency</th>
+        <th class="hidden">Picture</th>
+    </tr>
+
+{{#each prescriptionData}}
+    {{> prescriptionTableRow}}
+{{/each}}
+
+</table>
+
+<div id="info-modal" class="hidden modal-skeleton">
+    <div class="modal-contents">
+        <div class="modal-body">
+            <div id="prescription-info">
+                <p class="label id">Animal ID</p>
+                    <p class="data id"></p>
+                <p class="label name">Name</p>
+                    <p class="data name"></p>
+                <p class="label prescription">Prescription</p>
+                    <p class="data prescription"></p>
+                <p class="label frequency">Frequency</p>
+                    <p class="data breed"></p>
+            </div>
+            <div class="animal-img-wrapper animal-img-adoption-wrapper">
+                <img class="animal-modal-img" src="" alt="Animal Photo.">
+            </div>
+        </div>
+        <div class="modal-btn-wrapper">
+            <button id="delete-btn" class="modal-btn">Delete</button>
+            <button class="close-modal-btn modal-btn">Close</button>                    
+        </div>
+    </div>
+</div>
+
+<div id="add-prescription-modal" class="hidden modal-skeleton">
+    <div class="modal-contents">
+        <div class="modal-body">
+            <div id="prescription-input">
+                <p class="label id">Animal ID</p>
+                    <p class="data id">0</p>
+                <p class="label name">Animal Name</p>
+                    <select id="name-dropdown" class="dropdown-wrapper">
+                        {{#each animals}}
+                            <option value="{{this.animalID}}">{{this.animalName}}</option>
+                        {{/each}}
+                    </select>
+                <label for="prescription">Prescription</label>
+                    <input type="text" id="prescription" name="prescription" autocomplete="off">
+                <label for="frequency">Frequency</label>
+                    <input type="text" id="frequency" name="frequency" autocomplete="off">
+            </div>
+            <div class="animal-img-wrapper">
+                <img class="animal-modal-img" src="" alt="Animal Photo.">
+            </div>
+        </div>
+        <div class="modal-btn-wrapper">
+            <button id="confirm-btn" class="modal-btn">Confirm</button>
+            <button class="close-modal-btn modal-btn">Close</button>                    
+        </div>
+    </div>
+</div>

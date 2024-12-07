@@ -1,0 +1,18 @@
+<tr class="table-entry">
+    <th id="{{animalID}}">{{animalName}}</th>
+
+{{#if patronID}}
+    <th>{{firstName}} {{lastName}}</th>
+{{else}}
+    <th>Unknown Patron</th>
+{{/if}}
+    <th>{{fosteredOrAdopted}}</th>
+    <th>{{date}}</th>
+
+{{#if patronID}}
+    <th class="hidden">{{patronID}}</th>
+{{else}}
+
+{{/if}}
+    <th class="hidden">0</th>
+</tr>

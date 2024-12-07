@@ -1,0 +1,49 @@
+<select class="dropdown-wrapper">
+    <option selected>All</option>
+    <option>Adopters</option>
+    <option>Fosters</option>
+</select>
+<button id="add-btn" class="add-btn">Add</button>
+<table id="patron-table">
+    <tr class="table-header">
+        <th>Patron ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Phone Number</th>
+        <th>Address</th>
+    </tr>
+
+{{#each patronData}}
+    {{> patronTableRow}}
+{{/each}}
+
+</table>
+
+<div id="info-modal" class="hidden modal-skeleton">
+    <div class="modal-contents">
+        <div class="modal-body">
+            <div id="patron-info">
+                <p class="label id">Patron ID</p>
+                    <p class="data id"></p>
+                <label for="fname">First Name</label>
+                    <input type="text" id="fname" name="firstname" autocomplete="off">
+                <label for="lname">Last Name</label>
+                    <input type="text" id="lname" name="lastname" autocomplete="off">
+                <label for="phone1">Phone</label>
+                    <div id="phone-input-wrapper">
+                        <input type="number" id="phone1"  autocomplete="off"> -
+                        <input type="number" id="phone2"  autocomplete="off"> -
+                        <input type="number" id="phone3" autocomplete="off">
+                    </div>
+                <label for="address">Address</label>
+                    <input type="text" id="address" name="address" autocomplete="off">
+            </div>
+        </div>
+        <div class="modal-btn-wrapper">
+            <button id="confirm-btn" class="modal-btn">Confirm</button>
+            <button id="update-btn" class="modal-btn">Update</button>
+            <button id="delete-btn" class="modal-btn">Delete</button>
+            <button class="close-modal-btn modal-btn">Close</button>                    
+        </div>
+    </div>
+</div>

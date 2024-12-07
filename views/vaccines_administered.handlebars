@@ -1,0 +1,55 @@
+<select class="dropdown-wrapper">
+    <option selected>All</option>
+    <option>Dogs</option>
+    <option>Cats</option>
+</select>
+<button id="add-btn" class="add-btn">Add</button>
+<table id="vaccines-administered-table">
+    <tr class="table-header">
+        <th>Animal Name</th>
+        <th>Vaccine</th>
+        <th>Date Given</th>
+        <th>Date Expires</th>
+    </tr>
+
+{{#each vaccines_administeredData}}
+    {{> vaccines_administeredTableRow}}
+{{/each}}
+
+</table>
+
+<div id="info-modal" class="hidden modal-skeleton">
+    <div class="modal-contents">
+        <div class="modal-body">
+            <div id="vaccine-info">
+                <p class="label id">Animal ID</p>
+                    <p class="data id">0</p>
+                <p class="label name">Animal Name</p>
+                    <select id="name-dropdown" class="dropdown-wrapper">
+                        {{#each animals}}
+                            <option value="{{this.animalID}}">{{this.animalName}}</option>
+                        {{/each}}
+                    </select>
+                    <p class="label vaccine">Vaccine</p>
+                    <select id="vaccine-dropdown" class="dropdown-wrapper">
+                        {{#each vaccines}}
+                            <option value="{{this.vaccineID}}">{{this.name}}</option>
+                        {{/each}}
+                    </select>
+                <label for="date-given">Date Given</label>
+                    <input type="date" id="date-given" name="date-given" autocomplete="off">
+                <label for="date-expires">Date Expires</label>
+                    <input type="date" id="date-expires" name="date-expires" autocomplete="off">
+            </div>
+            <div class="animal-img-wrapper">
+                <img class="animal-modal-img" src="" alt="Animal Photo.">
+            </div>
+        </div>
+        <div class="modal-btn-wrapper">
+            <button id="confirm-btn" class="modal-btn">Confirm</button>
+            <button id="update-btn" class="modal-btn">Update</button>
+            <button id="delete-btn" class="modal-btn">Delete</button>
+            <button class="close-modal-btn modal-btn">Close</button>                    
+        </div>
+    </div>
+</div>
